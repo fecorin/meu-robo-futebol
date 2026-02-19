@@ -10,6 +10,11 @@ from datetime import datetime
 TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
+if not TOKEN or not CHAT_ID:
+    print("❌ ERRO: As senhas (Secrets) não foram encontradas pelo código!")
+else:
+    print("✅ SUCESSO: As senhas foram carregadas corretamente.")
+
 def enviar_telegram(mensagem):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={mensagem}&parse_mode=Markdown"
     requests.get(url)
