@@ -7,8 +7,8 @@ from datetime import datetime
 
 # --- CONFIGURAÇÕES ---
 # No GitHub Actions, use Secrets. Para teste local, preencha as strings.
-TOKEN = os.getenv('TELEGRAM_TOKEN', 'SEU_TOKEN_AQUI')
-CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', 'SEU_CHAT_ID_AQUI')
+TOKEN = os.getenv('TELEGRAM_TOKEN')
+CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 def enviar_telegram(mensagem):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={mensagem}&parse_mode=Markdown"
